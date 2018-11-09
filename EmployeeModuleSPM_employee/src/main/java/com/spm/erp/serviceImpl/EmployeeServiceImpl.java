@@ -11,16 +11,14 @@ import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
-
-    
-    @Override
-    public List<Employee> getAllEmployee() {
-        return employeeRepository.findAll();
-    }
-
+	@Override
+	public List<Employee> getAllEmployee() {
+		return employeeRepository.findAll();
+	}
 
 	@Override
 	public Employee getEmployeeDetail(Integer id) {
@@ -28,5 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.getEmployeeById(id);
 	}
 
+	@Override
+	public void create(Employee employee) {
+		employeeRepository.save(employee);
+	}
 
 }

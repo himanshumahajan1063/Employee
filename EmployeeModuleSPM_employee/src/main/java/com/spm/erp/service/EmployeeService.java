@@ -7,6 +7,10 @@ import com.spm.erp.model.Employee;
 public interface EmployeeService {
 
 	List<Employee> getAllEmployee();
+	
 	Employee getEmployeeDetail(Integer id);
+	
+	void create(Employee employee);
+	
 
 }
