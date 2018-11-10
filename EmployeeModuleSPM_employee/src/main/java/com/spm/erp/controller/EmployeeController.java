@@ -45,9 +45,9 @@ public class EmployeeController {
     }
 	
 	@PutMapping("/employee/{id}")
-    private ResponseEntity<Void> updateEmployee(@PathVariable Integer id) {
+    private ResponseEntity<Void> updateEmployee(@PathVariable Integer id, @RequestBody Employee employee) {
         try {
-            service.updateEmployee(id);
+            service.updateEmployee(id, employee);
         } catch (Exception e) {
             e.printStackTrace();
         }

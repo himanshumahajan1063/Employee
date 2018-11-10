@@ -1,10 +1,14 @@
 package com.spm.erp.serviceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.spm.erp.exception.CustomException;
 import com.spm.erp.model.Employee;
 import com.spm.erp.repository.EmployeeRepository;
 import com.spm.erp.service.EmployeeService;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -42,12 +46,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void updateEmployee(Integer id) {
-		Optional<Employee> emp = employeeRepository.findById(id);
-
-		if (emp.isPresent()) {
-			employeeRepository.save(emp.get());
-		} else {
+	public void updateEmployee(Integer id, Employee employee) {
+		try {
+			Employee emp = employeeRepository.findById(id).get();
+			employee.setId(emp.getId());
+			emp = employee;
+			employeeRepository.save(emp);
+		} catch (Exception e) {
 			System.out.println(new CustomException("Prolems updating employee with id " + id));
 		}
 	}
