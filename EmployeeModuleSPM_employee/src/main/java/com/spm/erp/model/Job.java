@@ -23,18 +23,12 @@ public class Job implements Serializable {
     @Column(name = "description")
     private String description;
     
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "province")
-    private Date province;
+    @Column(name = "min_salary")
+    private String min_salary;
     
-    @Column(name = "postal_code")
-    private String gender;
+    @Column(name = "max_salary")
+    private String max_salary;
     
-    @Column(name = "modified_Date")
-    private Date modified_date;
-
 	public Integer getId() {
 		return id;
 	}
@@ -51,40 +45,24 @@ public class Job implements Serializable {
 		this.description = description;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Date getProvince() {
-		return province;
-	}
-
-	public void setProvince(Date province) {
-		this.province = province;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public Date getModified_date() {
-		return modified_date;
-	}
-
-	public void setModified_date(Date modified_date) {
-		this.modified_date = modified_date;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getMin_salary() {
+		return min_salary;
+	}
+
+	public void setMin_salary(String min_salary) {
+		this.min_salary = min_salary;
+	}
+
+	public String getMax_salary() {
+		return max_salary;
+	}
+
+	public void setMax_salary(String max_salary) {
+		this.max_salary = max_salary;
 	}
     
    
