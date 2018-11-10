@@ -13,19 +13,21 @@ import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
 	@Override
 	public List<Employee> getAllEmployee() {
+
 		return employeeRepository.findAll();
 	}
 
 	@Override
 	public Employee getEmployeeDetail(Integer id) {
-		// TODO Auto-generated method stub
+
 		return employeeRepository.getEmployeeById(id);
+
 	}
 
 	@Override
@@ -35,21 +37,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void deleteEmployee(Integer id) {
-		employeeRepository.deleteById(id);
-		
+		try {
+			employeeRepository.deleteById(id);
+		} catch (Exception e) {
+			System.out.println(new CustomException("Problem deleting employee with id : " + id));
+		}
+
 	}
 
 	@Override
 	public void updateEmployee(Integer id) {
 		Optional<Employee> emp = employeeRepository.findById(id);
-	
-		if(emp.isPresent()) {
+
+		if (emp.isPresent()) {
 			employeeRepository.save(emp.get());
+		} else {
+			System.out.println(new CustomException("Prolems updating employee with id " + id));
 		}
-		else{
-			System.out.println(new CustomException("No employee exists with id "+id));
-		}
-		
+
 	}
 
 }
