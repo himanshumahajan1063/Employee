@@ -13,6 +13,8 @@ public interface EmployeeService {
 	void create(Employee employee);
 
 	void deleteEmployee(Integer id);
+
+	void updateEmployee(Integer id);
 	
 
 }

@@ -8,6 +8,7 @@ import com.spm.erp.repository.EmployeeRepository;
 import com.spm.erp.service.EmployeeService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -34,6 +35,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void deleteEmployee(Integer id) {
 		employeeRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public void updateEmployee(Integer id) {
+		Optional<Employee> emp = employeeRepository.findById(id);
+	
+		if(emp.isPresent()) {
+			employeeRepository.save(emp.get());
+		}
+		else{
+			
+		}
 		
 	}
 
