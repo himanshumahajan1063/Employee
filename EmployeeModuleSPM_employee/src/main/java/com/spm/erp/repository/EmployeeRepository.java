@@ -10,4 +10,5 @@ import com.spm.erp.model.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	@Query(value = "SELECT * FROM employee where id = ?1 ; ", nativeQuery = true)
 	Employee getEmployeeById(Integer id);
+
 }
