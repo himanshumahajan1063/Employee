@@ -46,7 +46,7 @@ public class Employee implements Serializable {
     private Integer departmentId;
     
     @Column(name = "job_id")
-    private String jobId;
+    private Integer jobId;
 
 	public Integer getId() {
 		return id;
@@ -120,11 +120,11 @@ public class Employee implements Serializable {
 		this.departmentId = departmentId;
 	}
 
-	public String getJobId() {
+	public Integer getJobId() {
 		return jobId;
 	}
 
-	public void setJobId(String jobId) {
+	public void setJobId(Integer jobId) {
 		this.jobId = jobId;
 	}
 
