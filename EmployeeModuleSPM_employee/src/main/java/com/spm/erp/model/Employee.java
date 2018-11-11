@@ -12,9 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 public class Employee implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+	
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -127,12 +125,4 @@ public class Employee implements Serializable {
 	public void setJobId(Integer jobId) {
 		this.jobId = jobId;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
-   
-
 }

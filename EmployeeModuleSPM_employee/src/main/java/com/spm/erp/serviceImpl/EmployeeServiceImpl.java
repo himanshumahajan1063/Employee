@@ -2,15 +2,13 @@ package com.spm.erp.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.spm.erp.exception.CustomException;
 import com.spm.erp.model.Employee;
 import com.spm.erp.repository.EmployeeRepository;
 import com.spm.erp.service.EmployeeService;
+import com.spm.erp.serviceImpl.utility.Util;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -49,8 +47,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public void updateEmployee(Integer id, Employee employee) {
 		try {
 			Employee emp = employeeRepository.findById(id).get();
-			employee.setId(emp.getId());
-			emp = employee;
+			emp = Util.updateProperties(emp, employee);
+			emp.setId(id);
 			employeeRepository.save(emp);
 		} catch (Exception e) {
 			System.out.println(new CustomException("Prolems updating employee with id " + id));
