@@ -1,5 +1,7 @@
 package com.spm.erp.model;
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +33,7 @@ public class Address implements Serializable {
     private String postal_code;
     
     @Column(name = "modified_date")
-    private String modified_date;
+    private Date modified_date;
 
 	public Integer getId() {
 		return id;
@@ -73,11 +75,11 @@ public class Address implements Serializable {
 		this.postal_code = postal_code;
 	}
 
-	public String getModified_date() {
+	public Date getModified_date() {
 		return modified_date;
 	}
 
-	public void setModified_date(String modified_date) {
+	public void setModified_date(Date modified_date) {
 		this.modified_date = modified_date;
 	}
 

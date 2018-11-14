@@ -22,10 +22,10 @@ public class Job implements Serializable {
     private String description;
     
     @Column(name = "min_salary")
-    private String min_salary;
+    private Double min_salary;
     
     @Column(name = "max_salary")
-    private String max_salary;
+    private Double max_salary;
     
 	public Integer getId() {
 		return id;
@@ -47,19 +47,19 @@ public class Job implements Serializable {
 		return serialVersionUID;
 	}
 
-	public String getMin_salary() {
+	public Double getMin_salary() {
 		return min_salary;
 	}
 
-	public void setMin_salary(String min_salary) {
+	public void setMin_salary(Double min_salary) {
 		this.min_salary = min_salary;
 	}
 
-	public String getMax_salary() {
+	public Double getMax_salary() {
 		return max_salary;
 	}
 
-	public void setMax_salary(String max_salary) {
+	public void setMax_salary(Double max_salary) {
 		this.max_salary = max_salary;
 	}
     
