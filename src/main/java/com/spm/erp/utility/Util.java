@@ -1,4 +1,4 @@
-package com.spm.erp.serviceImpl.utility;
+package com.spm.erp.utility;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;

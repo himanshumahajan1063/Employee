@@ -6,7 +6,7 @@ import com.spm.erp.exception.CustomException;
 import com.spm.erp.model.Employee;
 import com.spm.erp.repository.EmployeeRepository;
 import com.spm.erp.service.EmployeeService;
-import com.spm.erp.serviceImpl.utility.Util;
+import com.spm.erp.utility.Util;
 
 import java.util.List;
 
